@@ -1,8 +1,8 @@
-# WireGuard-Manager: Secure Your Network 💻 🖥 !
+# WireGuard-Manager: Secure Your Network 💻 🖥!
 
 ## 🔰 Introduction
 
-Welcome to WireGuard-Manager, your solution for setting up WireGuard, a cutting-edge VPN protocol. WireGuard is known for its speed, security, and ease-of-use, making it an ideal choice for both personal and professional VPN needs. This tool is designed to simplify the installation and management of WireGuard, ensuring a secure and efficient networking experience.
+Welcome to WireGuard-Manager, your solution for setting up WireGuard, a cutting-edge VPN protocol. WireGuard is known for its speed, security, and ease of use, making it an ideal choice for both personal and professional VPN needs. This tool is designed to simplify the installation and management of WireGuard, ensuring a secure and efficient networking experience.
 
 ## Quality and Reliability
 
@@ -39,7 +39,7 @@ Welcome to WireGuard-Manager, your solution for setting up WireGuard, a cutting-
 ### Licensing
 
 - **Project License**: Our work is under the Apache 2.0 License:
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/License.md)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/complexorganizations/wireguard-manager/blob/main/license.md)
 
 ## ✊ Show Your Support
 
@@ -79,60 +79,97 @@ WireGuard is a straightforward yet fast and modern VPN that utilizes state-of-th
 2. **Configuration**: Easy-to-follow configuration steps.
 3. **Management**: User-friendly interface for managing your VPN.
 
+## Installation Guide
+
+https://github.com/complexorganizations/wireguard-manager/assets/102563715/dd539835-2c30-4146-b4f8-940329aa6070
+
 ## 🐧 Installation
 
-First, use `curl` to download the script and save it in `/usr/local/bin/`:
+To ensure the successful installation of the WireGuard Manager script on various Linux systems, it's crucial to have `curl` and `bash` installed. Here's an expanded installation guide that includes instructions for installing `curl` and `bash` on different Linux distributions:
+
+### Installing `curl` & `bash` & `resolvconf` on Linux Systems
+
+#### Debian/Ubuntu-based Systems (e.g., Ubuntu, Debian, Linux Mint):
 
 ```bash
-curl https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/wireguard-manager.sh --create-dirs -o /usr/local/bin/wireguard-manager.sh
+sudo apt update
+sudo apt install curl bash resolvconf
 ```
 
-Next, make the script user executable:
+#### Red Hat-based Systems (e.g., CentOS, RHEL, Fedora):
 
 ```bash
-chmod +x /usr/local/bin/wireguard-manager.sh
+sudo yum install curl bash resolvconf
 ```
 
-It's finally time to execute the script
+or
 
 ```bash
-bash /usr/local/bin/wireguard-manager.sh
+sudo dnf install curl bash resolvconf
 ```
+
+#### Arch-based Systems (e.g., Arch Linux, Manjaro):
+
+```bash
+sudo pacman -Sy curl bash resolvconf
+```
+
+#### Alpine Linux:
+
+```bash
+sudo apk update
+sudo apk add curl bash resolvconf
+```
+
+#### Other Distributions:
+
+For other Linux distributions, you can use the package manager specific to that distribution to install `curl` & `bash` & `resolvconf`. The package names may vary slightly.
+
+### Installing WireGuard Manager Script
+
+Now that you have `curl` and `bash` installed, you can proceed with installing the WireGuard Manager script using the provided instructions:
+
+1. First, use `curl` to download the script and save it in `/usr/local/bin/`:
+
+   ```bash
+   curl https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/wireguard-manager.sh --create-dirs -o /usr/local/bin/wireguard-manager.sh
+   ```
+
+2. Next, make the script user executable:
+
+   ```bash
+   chmod +x /usr/local/bin/wireguard-manager.sh
+   ```
+
+3. Finally, execute the script:
+
+   ```bash
+   bash /usr/local/bin/wireguard-manager.sh
+   ```
+
+### Connecting to WireGuard Interface
 
 In your `/etc/wireguard/clients` directory, you will find `.conf` files. These are the peer configuration files. Download them from your WireGuard Interface and connect using your favorite WireGuard Peer.
 
-## 💣 Post-Installation
-
-- Show WireGuard Interface
-- Start WireGuard Interface
-- Stop WireGuard Interface
-- Restart WireGuard Interface
-- Add WireGuard Peer
-- Remove WireGuard Peer
-- Uninstall WireGuard Interface
-- Update this script
-- Encrypt & Backup Configs
-- Restore WireGuard Configs
-
 ## 🔑 Usage
 
-```bash
-usage: ./wireguard-manager.sh <command>
-  --install     Install WireGuard
-  --start       Start WireGuard
-  --stop        Stop WireGuard
-  --restart     Restart WireGuard
-  --list        Show WireGuard
-  --add         Add WireGuard Peer
-  --remove      Remove WireGuard Peer
-  --reinstall   Reinstall WireGuard
-  --uninstall   Uninstall WireGuard
-  --update      Update WireGuard Manager
-  --ddns        Update WireGuard IP Address
-  --backup      Backup WireGuard
-  --restore     Restore WireGuard
-  --purge       Purge WireGuard Peer(s)
-  --help        Show Usage Guide
+```md
+usage: bash /usr/local/bin/wireguard-manager.sh # --install
+  --install     Installs the WireGuard interface on your system
+  --start       Starts the WireGuard interface if it's not already running
+  --stop        Stops the WireGuard interface if it's currently running
+  --restart     Restarts the WireGuard interface
+  --list        Lists all the peers currently connected to the WireGuard interface
+  --add         Adds a new peer to the WireGuard interface
+  --remove      Removes a specified peer from the WireGuard interface
+  --reinstall   Reinstalls the WireGuard interface, keeping the current configuration
+  --uninstall   Uninstalls the WireGuard interface from your system
+  --update      Updates the WireGuard Manager to the latest version
+  --ddns        Updates the IP address of the WireGuard interface using Dynamic DNS
+  --backup      Creates a backup of your current WireGuard configuration
+  --restore     Restores the WireGuard configuration from a previous backup
+  --purge       Removes all peers from the WireGuard interface
+  --help        Displays this usage guide
 ```
 
 ## 🥰 Features
@@ -316,11 +353,11 @@ This section compares the internet speed differences between using no VPN, WireG
 
 ### No VPN (Normal Connection)
 
-![No VPN Speed Test](https://www.speedtest.net/result/15594017199.png)
+![No VPN Speed Test](https://www.speedtest.net/result/15776043000.png)
 
 ### WireGuard Speed Test
 
-![Wireguard Speed Test](https://www.speedtest.net/result/15593888174.png)
+![Wireguard Speed Test](https://www.speedtest.net/result/15776045897.png)
 
 ### OpenVPN Speed Test
 
@@ -360,7 +397,7 @@ git clone https://github.com/complexorganizations/wireguard-manager /root/
 bash -x /root/wireguard-manager/wireguard-manager.sh >>/root/wireguard-manager/wireguard-manager.log
 ```
 
-By following these steps, you can either quickly modify the code online without cloning or perform a more comprehensive debugging process by cloning the repository to your local machine. Each method offers different benefits depending on your needs and the extent of your work with the WireGuard Manager script.
+Following these steps, you can either quickly modify the code online without cloning or perform a more comprehensive debugging process by cloning the repository to your local machine. Each method offers different benefits depending on your needs and the extent of your work with the WireGuard Manager script.
 
 ### Detailed Debugging Guide for WireGuard Manager
 
@@ -420,12 +457,18 @@ This project is made possible thanks to the Open Source Community.
 
 ## 📱 Community and Contributions
 
-Join our community on [![Discord](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/assets/images/icons/discord.svg)](https://discord.gg/HyhugYT9u7) and [![Slack](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/assets/images/icons/slack.svg)](https://parking-unitedcom.slack.com/archives/C05QM7PS9GV/p1693631754500589) to contribute to the project, share ideas, and get help.
+Join our community on [![Discord](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/assets/images/icons/discord.svg)](https://discord.gg/CdjBYMScMS) and [![Slack](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/assets/images/icons/slack.svg)](https://join.slack.com/t/complexorgani-w5b4873/shared_invite/zt-2e9gz2wh2-dWuylZLgaEgFywNKF_iQRQ) to contribute to the project, share ideas, and get help.
 
 ## 🤝 Sponsors
 
-This project is sponsored by [![Digital Ocean](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/assets/images/icons/digitalocean.svg)](https://www.digitalocean.com)
+This project is sponsored by
+
+[![Digital Ocean](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/assets/images/icons/digitalocean.svg)](https://www.digitalocean.com) [![Google Cloud](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/assets/images/icons/gcp.svg)](https://cloud.google.com) [![AWS](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/assets/images/icons/aws.svg)](https://aws.amazon.com) [![Linode](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/assets/images/icons/linode.svg)](https://linode.com)
+
+## Backup
+
+https://gitlab.com/complexorganizations/wireguard-manager
 
 ## 📝 License
 
-WireGuard-Manager is licensed under the Apache License Version 2.0. For more details, please refer to our [License File](https://raw.githubusercontent.com/complexorganizations/wireguard-manager/main/.github/LICENSE).
+WireGuard-Manager is licensed under the Apache License Version 2.0. For more details, please refer to our [License File](https://github.com/complexorganizations/wireguard-manager/blob/main/license.md).
